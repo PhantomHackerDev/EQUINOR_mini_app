@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Footer: React.FC = () => {
   return (
-    <div className="bg-[#2a2b31] w-full flex flex-row justify-between bottom-0 z-20">
+    <div className="bg-[#2a2b31] md:w-1/2 sm: w-full flex fixed flex-row justify-between bottom-0 z-20">
       <div className="flex flex-row w-full justify-between items-center bottom-0 py-3">
           <div className="flex pl-4">
             <button className="flex items-center flex-col" >

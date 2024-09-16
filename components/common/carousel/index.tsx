@@ -1,6 +1,7 @@
 'use client';
 
 import React, {useState, useEffect, useRef} from "react";
+import Image from "next/image";
 
 type CarouselProps = {
   images: string[];
@@ -21,7 +22,7 @@ const Carousel: React.FC<CarouselProps> = ({images}) => {
   useEffect(() => {
     const previewElement = previewRef.current;
     if (previewElement) {
-      const thumbnailWidth = 72; // 64px width + 8px margin
+      const thumbnailWidth = 10; // 64px width + 8px margin
       const previewWidth = previewElement.clientWidth;
       const scrollPosition = currentIndex * thumbnailWidth - previewWidth / 2 + thumbnailWidth / 2;
       previewElement.scrollTo({
@@ -42,16 +43,16 @@ const Carousel: React.FC<CarouselProps> = ({images}) => {
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {images.map((image, index) => (
-          <div key={index} className="w-full flex-shrink-0">
-            <img src={image} alt={`Slide ${index}`} className="w-full" />
+          <div key={index} className="w-full flex-shrink-0 rounded-xl">
+            <Image src={image} alt={`Slide ${index}`} width={100} height={100} className="w-full h-46 rounded-xl" />
           </div>
         ))}
       </div>
-      <div className="absolute bottom-0 left-0 right-0 flex justify-center p-2 space-x-2">
+      <div className="absolute bottom-4 left-0 right-0 flex justify-center p-2 space-x-2">
         {images.map((_, index) => (
           <div
             key={index}
-            className={`w-3 h-3 rounded-full ${currentIndex === index ? 'bg-gray-800' : 'bg-gray-400'}`}
+            className={`w-2 h-2 rounded-full ${currentIndex === index ? 'bg-gray-800' : 'bg-gray-400'}`}
           ></div>
         ))}
       </div>
@@ -61,7 +62,7 @@ const Carousel: React.FC<CarouselProps> = ({images}) => {
         style={{ scrollbarWidth: 'none' }}
       >
         {images.map((image, index) => (
-          <img
+          <Image
             key={index}
             src={image}
             alt={`Thumbnail ${index}`}
