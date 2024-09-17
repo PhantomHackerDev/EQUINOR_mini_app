@@ -44,7 +44,7 @@ const Carousel: React.FC<CarouselProps> = ({images}) => {
       >
         {images.map((image, index) => (
           <div key={index} className="w-full flex-shrink-0 rounded-xl">
-            <Image src={image} alt={`Slide ${index}`} width={100} height={100} className="w-full h-46 rounded-xl" />
+            <Image src={image} alt={`Slide ${index}`} width={700} height={300} className="rounded-xl" />
           </div>
         ))}
       </div>
